@@ -1,0 +1,80 @@
+---
+interface Props {
+  title: string;
+  passive?: boolean;
+}
+
+const { title, passive } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="mt-20 py-2">
+      <h2 class="text-center mb-4 text-3xl">
+        <span class={passive ? " opacity-10" : " text-gradient font-bold"}>
+          Asatulla Dadabaev</span
+        >
+      </h2>
+    </header>
+
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #13151a;
+    color: #fff;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    animation: circle-gradient 5s linear infinite;
+  }
+
+  @keyframes circle-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 25% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

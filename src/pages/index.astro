@@ -1,0 +1,100 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { GREETINGS } from "../utils/constants";
+
+const greeting = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
+
+const posts = await getCollection("blog");
+const lastThree = posts.slice(0, 3);
+---
+
+<Layout title="Asatulla - Personal">
+  <main>
+    <section id="#about" class="py-4">
+      <div class="flex mt-4">
+        <img
+          class="rounded-full mr-2 w-36 h-36"
+          src="https://avatars.githubusercontent.com/u/57175411?v=4"
+          alt="me drinking water and looking at macbook in cool sweater"
+        />
+        <div>
+          <h2 class="text-lg">
+            <span>{greeting},</span>
+            <span role="img" aria-label="waving hand"> 👋 </span>
+          </h2>
+          <p class="py-2">
+            I'm Asatulla Dadabaev. I'm a software engineer, and I'm passionate
+            about web development, open source, and learning new things. I'm
+            currently working at
+            <a
+              class="text-gradient"
+              target="_blank"
+              href="https://www.instagram.com/choco_kz/"
+            >
+              Choco
+            </a>. I'm a big fan of JavaScript, TypeScript, and Python(especially
+            Data Science).
+          </p>
+
+          <p>
+            You can find me on
+            <a
+              class="text-gradient"
+              target="_blank"
+              href="
+            https://linkedin.com/in/bixxter"
+            >
+              LinkedIn
+            </a>, on
+            <a
+              class="text-gradient"
+              target="_blank"
+              href="https://instagram.com/bixxter_"
+            >
+              Instagram
+            </a>, and
+            <a
+              class="text-gradient"
+              target="_blank"
+              href="
+              https://telegram.me/bixxter"
+            >
+              Telegram
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section id="#blog" class="py-4">
+      <ul>
+        <h2 class="text-lg">Latest posts:</h2>
+        {
+          lastThree.map((post) => (
+            <li class="list-inside ">
+              <span class="mr-2">~</span>
+              <a class="text-gradient" href={`/blog/${post.slug}`}>
+                {post.data.title}
+              </a>
+
+              <span class="text-xs italic text-gray-400">{post.data.date}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <a class="text-gradient text-lg" href="/blog">...</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+  }
+</style>
