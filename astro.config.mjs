@@ -4,6 +4,8 @@ import { fileURLToPath } from "url";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://bixter.com",
+  base: "/astro-personal",
   integrations: [
     tailwind({
       configFile: fileURLToPath(
