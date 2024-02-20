@@ -15,11 +15,6 @@ const posts = await getCollection("blog");
       posts.map(({ data, slug }) => (
         <article class="flex items-center space-x-4">
           <div class="overlay">
-            {data.img && (
-              <div class="w-24">
-                <BaseImage path={data.img} alt={data.title} />
-              </div>
-            )}
             <a href={`/blog/${slug}`}>{data.title}</a>
           </div>
         </article>
