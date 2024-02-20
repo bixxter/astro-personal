@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import { GREETINGS } from "@/utils/constants";
+import ProfilePicture from "@/assets/images/me.jpeg";
+
+const greeting = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
+---
+
+<div class="flex mt-4 flex-col md:flex-row">
+  <Image
+    class="rounded-full w-36 h-36 mx-auto md:ml-0 md:mr-2"
+    src={ProfilePicture}
+    alt="me drinking water and looking at macbook in cool sweater"
+  />
+  <div class="mt-4 md:mt-0">
+    <h2 class="text-lg">
+      <span>{greeting}</span>
+      <span role="img" aria-label="waving hand"> 👋 </span>
+    </h2>
+    <p class="py-2">
+      I'm software engineer passionated about web development and learning new
+      things. Currently working at
+      <abbr title="Choco - one of biggest e-commerce holding in Kazakhstan">
+        <a
+          class="text-gradient text-gradient--red"
+          target="_blank"
+          href="https://www.instagram.com/choco_kz/"
+        >
+          Choco
+        </a></abbr
+      >. The big fan of JavaScript, TypeScript, and Python(especially Data
+      Science).
+    </p>
+
+    <p>
+      On the web,
+      <a
+        class="text-gradient"
+        target="_blank"
+        href="
+        https://linkedin.com/in/bixxter"
+      >
+        LinkedIn
+      </a>,
+      <a
+        class="text-gradient"
+        target="_blank"
+        href="https://instagram.com/bixxter_"
+      >
+        Instagram
+      </a>, and
+      <a
+        class="text-gradient"
+        target="_blank"
+        href="
+          https://telegram.me/bixxter"
+      >
+        Telegram
+      </a>
+    </p>
+  </div>
+</div>

@@ -14,18 +14,23 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={`${entry.data.title}`} passive>
-  <main>
-    <Content />
-  </main>
-</Layout>
+<Layout title={`${entry.data.title}`}>
+  <!-- Image -->
+  <img
+    class="w-full h-24 object-cover"
+    src={entry.data.image}
+    alt={entry.data.title}
+  />
 
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-  }
-</style>
+  <!-- Title -->
+  <h2 class="text-2xl text-center">
+    {entry.data.title}
+  </h2>
+
+  <Content />
+
+  <!-- Navigate back -->
+  <div class="mt-4 text-gradient font-mono">
+    <a href="/">/cd..</a>
+  </div>
+</Layout>

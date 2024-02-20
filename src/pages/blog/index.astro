@@ -1,9 +1,29 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import BaseImage from "@/components/base/BaseImage.astro";
 
 const posts = await getCollection("blog");
 ---
 
-<ul>
-  {posts.map((post) => <a href={`/blog/${post.slug}`}>{post.data.title}</a>)}
-</ul>
+<Layout title="Blog - bixxter">
+  <section id="#posts">
+    <h1 class="text-2xl">Blog</h1>
+    <p>Here are some of my thoughts and ideas.</p>
+
+    {
+      posts.map(({ data, slug }) => (
+        <article class="flex items-center space-x-4">
+          <div class="overlay">
+            {data.img && (
+              <div class="w-24">
+                <BaseImage path={data.img} alt={data.title} />
+              </div>
+            )}
+            <a href={`/blog/${slug}`}>{data.title}</a>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+</Layout>

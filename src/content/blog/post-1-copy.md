@@ -1,6 +1,6 @@
 ---
-title: Worth using Astro?
-date: 2.2.2024
+title: Vue application optimization
+date: 1.1.2024
 image: https://images.squarespace-cdn.com/content/v1/603aaeea5646d67cf7bb0f2e/08765722-16e5-4cd0-9b91-76e10326fc5c/Quintet_JwstHstEtcGendler_960.jpg
 ---
 
