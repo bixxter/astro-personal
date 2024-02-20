@@ -1,5 +1,4 @@
 ---
-import "@/assets/styles/global.scss";
 import BaseNavigation from "../components/base/BaseNavigation.astro";
 interface Props {
   title: string;
@@ -41,3 +40,7 @@ const { title } = Astro.props;
     </main>
   </body>
 </html>
+
+<style is:global>
+  @import "../styles/global.css";
+</style>

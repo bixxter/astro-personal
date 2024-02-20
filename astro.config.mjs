@@ -1,16 +1,19 @@
+import path from "path";
+import { fileURLToPath } from "url";
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import { fileURLToPath } from "url";
 
-// https://astro.build/config
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   site: "https://bixter.com",
   base: "/astro-personal",
-  integrations: [
-    tailwind({
-      configFile: fileURLToPath(
-        new URL("./tailwind.config.mjs", import.meta.url),
-      ),
-    }),
-  ],
+  integrations: [tailwind()],
+  vite: {
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+  },
 });
