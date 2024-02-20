@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import { GREETINGS } from "@/utils/constants";
 import ProfilePicture from "@/assets/images/me.jpeg";
 
-const greeting = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
+const greeting = () => GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
 ---
 
 <div class="flex mt-4 flex-col md:flex-row">
@@ -14,7 +14,7 @@ const greeting = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
   />
   <div class="mt-4 md:mt-0">
     <h2 class="text-lg">
-      <span>{greeting}</span>
+      <span>{greeting()}</span>
       <span role="img" aria-label="waving hand"> 👋 </span>
     </h2>
     <p class="py-2">

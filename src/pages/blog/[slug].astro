@@ -23,14 +23,22 @@ const { Content } = await entry.render();
   />
 
   <!-- Title -->
-  <h2 class="text-2xl text-center">
-    {entry.data.title}
-  </h2>
+  <div class="py-4">
+    <h2 class="text-2xl text-center">
+      {entry.data.title}
+    </h2>
 
-  <Content />
+    <p class="text-center text-sm text-gray-500">
+      {entry.data.date}
+    </p>
+  </div>
+
+  <div class="my-4">
+    <Content />
+  </div>
 
   <!-- Navigate back -->
-  <div class="mt-4 text-gradient font-mono">
-    <a href="/">/cd..</a>
+  <div class="py-4 text-gradient font-mono mt-auto">
+    <a href="/">cd..</a>
   </div>
 </Layout>
