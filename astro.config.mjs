@@ -7,7 +7,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   site: "https://bixter.com",
-  base: "/astro-personal",
   integrations: [tailwind()],
   vite: {
     resolve: {
